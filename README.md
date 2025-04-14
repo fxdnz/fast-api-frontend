@@ -1,19 +1,157 @@
-## Setup Instructions
+## Setup Instructions for Vite + React Frontend
 1. Clone the repo:
-   `git clone https://github.com/yourname/yourproject.git`
-2. 
+   
+   ```code
+   git clone https://github.com/fxdnz/fast-api-frontend.git
+   ```
+3. Navigate to the project folder:
 
-# 📝 API Endpoints
+   ```code
+   cd fast-api-frontend
+   ```
+4. Install dependencies:
 
-| Method | Endpoint | Description |
-|----------|----------|----------|
-| GET | https://todo-backend-plkw.onrender.com/api/v1/tasks/ | READ |
-| POST | https://todo-backend-plkw.onrender.com/api/v1/tasks/create/ | CREATE |
-| PUT | https://todo-backend-plkw.onrender.com/api/v1/tasks/2/ | UPDATE |
-| DELETE | https://todo-backend-plkw.onrender.com/api/v1/tasks/2/ | DELETE |
+   ```code
+   npm install
+   ```
+5. Start the development server:
 
-Live Deployed Links
---- 
-Frontend: https://todo-list-miranda.netlify.app/
+   ```code
+   npm run dev
+   ```
+## API Endpoints from FastAPI Backend
+### GET `https://fast-api-ffw9.onrender.com/tasks` 
+- **Description**: Returns a list of all tasks.
+- **Method**: GET
+- **Response**:
+   ```json
+    [
+     {
+       "title": "fast api testing edit",
+       "is_completed": false,
+       "id": 9
+     },
+     {
+       "title": "edit man diay ni",
+       "is_completed": true,
+       "id": 8
+     }
+   ]
+   ```
+### POST `https://fast-api-ffw9.onrender.com/tasks` 
+- **Description**: Creates a new task.
+- **Method**: POST
+- **Request Body**:
+  ```json
+  {
+     "title": "testing filter",
+     "is_completed": false,
+  },
+  ```
+- **Response**:
+   ```json
+   [
+     {
+       "title": "fast api testing edit",
+       "is_completed": false,
+       "id": 9
+     },
+     
+     {
+       "title": "testing filter",
+       "is_completed": false,
+       "id": 26
+      },
+     {
+       "title": "edit man diay ni",
+       "is_completed": true,
+       "id": 8
+     }
+   ]
+   ```
+### PUT `https://fast-api-ffw9.onrender.com/tasks/{task_id}` 
+- **Description**: Updates an existing task by its ID.
+- **Method**: PUT
+- **Request Body**:
+  ```json
+  {
+     "title": "testing filter edit",
+     "is_completed": false
+   }
+  ```
+- **Response**:
+   ```json
+    {
+     "title": "testing filter edit",
+     "is_completed": false,
+     "id": 26
+    }
+   ```
+### DELETE `https://fast-api-ffw9.onrender.com/tasks/{task_id}` 
+- **Description**: Deletes a task by its ID.
+- **Method**: DELETE
+- **Response**:
+   ```json
+   {
+     "message": "Task deleted successfully"
+   }
+   ```
+## Routes for task filtering based on completion status
+### GET `https://fast-api-ffw9.onrender.com/tasks/filter` 
+- **Description**: Returns tasks filtered by their completion status.
+- **Method**: GET
+- **Query Parameter**: `is_completed` (`true` or `false`)
+- **Response**:
+   ```json
+   [
+     {
+       "title": "fast api testing edit",
+       "is_completed": false,
+       "id": 9
+     },
+     {
+       "title": "testing filter",
+       "is_completed": true,
+       "id": 26
+     },
+     {
+       "title": "edit man diay ni",
+       "is_completed": true,
+       "id": 8
+     }
+   ]
+   ```
+- **Response if True**: `https://fast-api-ffw9.onrender.com/tasks/filter?is_completed=true`
+  ```json
+  [
+     {
+        "title":"edit man diay ni",
+        "is_completed":true,
+        "id":8
+     }
+  ]
+  ```
+- **Response if False**: `https://fast-api-ffw9.onrender.com/tasks/filter?is_completed=false`
+  ```json
+  [
+     {
+        "title":"fast api testing edit",
+        "is_completed":false,"id":9
+     },
+     {
+        "title":"testing filter edit",
+        "is_completed":false,"id":26
+     }
+  ]
+  ```
 
-Backend: https://todo-backend-plkw.onrender.com/
+## Live Deployed Links
+**Frontend**: 
+```code
+https://fastapi-front.netlify.app/
+```
+
+**Backend**: 
+```code
+https://fast-api-ffw9.onrender.com/
+```
