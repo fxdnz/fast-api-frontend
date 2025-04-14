@@ -1,3 +1,8 @@
+## Setup Instructions
+1. Clone the repo:
+   `git clone https://github.com/yourname/yourproject.git`
+2. 
+
 # 📝 API Endpoints
 
 | Method | Endpoint | Description |
