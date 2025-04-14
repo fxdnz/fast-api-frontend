@@ -150,8 +150,6 @@ export default function TodoList({ isDarkMode }) {
 
   return (
     <div className={`todo-container ${isDarkMode ? "dark-mode" : ""}`}>
-      <h2 className={isDarkMode ? "dark-text" : ""}>To-Do List</h2>
-
       <input
         type="text"
         placeholder="Add a new task..."
@@ -163,7 +161,7 @@ export default function TodoList({ isDarkMode }) {
         Add Task
       </button>
 
-      <div>
+      <div style={{ marginTop: "20px" }}>
         <button
           onClick={() => handleFilterChange("all")}
           className={isDarkMode ? "dark-button" : ""}
@@ -211,29 +209,35 @@ export default function TodoList({ isDarkMode }) {
                   </button>
                 </div>
               ) : (
-                <div>
-                  <h3>{task.title}</h3>
-                  <button
-                    onClick={() => {
-                      setEditIndex(task.id);
-                      setNewTitle(task.title);
-                    }}
-                    className={isDarkMode ? "dark-button" : ""}
-                  >
-                    Edit
-                  </button>
-                  <button
-                    onClick={() => removeTask(task.id)}
-                    className={isDarkMode ? "dark-button" : ""}
-                  >
-                    Delete
-                  </button>
-                  <button
-                    onClick={() => markAsCompleted(task.id)}
-                    className={isDarkMode ? "dark-button" : ""}
-                  >
-                    {task.completed ? "Completed" : "Mark as Complete"}
-                  </button>
+                <div className="task-content">
+                  <div className="task-title">
+                    <h3 className={isDarkMode ? "dark-title" : ""}>
+                      {task.title}
+                    </h3>
+                  </div>
+                  <div className="task-buttons">
+                    <button
+                      onClick={() => {
+                        setEditIndex(task.id);
+                        setNewTitle(task.title);
+                      }}
+                      className={isDarkMode ? "dark-button" : ""}
+                    >
+                      Edit
+                    </button>
+                    <button
+                      onClick={() => removeTask(task.id)}
+                      className={isDarkMode ? "dark-button" : ""}
+                    >
+                      Delete
+                    </button>
+                    <button
+                      onClick={() => markAsCompleted(task.id)}
+                      className={isDarkMode ? "dark-button" : ""}
+                    >
+                      {task.completed ? "Completed" : "Complete"}
+                    </button>
+                  </div>
                 </div>
               )}
             </li>

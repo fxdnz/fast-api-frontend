@@ -31,19 +31,15 @@ button,
 input {
   padding: 8px;
   margin-right: 10px;
-  border-radius: 50px;
+  border-radius: 5px;
   background-color: transparent;
-  border: 2px solid #333;
+  border: 1px solid #333;
   color: #000;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 input {
   width: 15rem;
-}
-
-button {
-  margin-bottom: 20px;
 }
 
 body:not(.dark-mode) input:hover,
@@ -54,6 +50,7 @@ body:not(.dark-mode) button:hover {
 button {
   cursor: pointer;
   margin-left: 5px;
+  width: 5rem;
 }
 
 ul {
@@ -61,14 +58,15 @@ ul {
 }
 
 .task-list-container {
-  width: 35rem;
-  max-width: 35rem;
+  width: 40rem;
+  max-width: 40rem;
   height: 300px;
   overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #888 transparent;
   margin-top: 20px;
   margin-bottom: 20px;
-  border: 2px solid #ccc;
-  border-radius: 8px;
+  border-radius: 12px;
   transition: border-color 0.3s ease;
 }
 
@@ -77,14 +75,15 @@ ul {
 }
 
 li {
-  height: 50px;
+  height: 70px;
+  margin-right: 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  border-radius: 4px;
+  background-color: #ccc;
+  border-radius: 5px;
   list-style-type: none;
-  border: 1px solid #ccc;
   margin-bottom: 10px;
   transition: background-color 0.3s ease, border-color 0.3s ease;
 }
@@ -182,4 +181,41 @@ li button {
   position: absolute;
   top: 20px;
   right: 20px;
+}
+
+.task-content {
+  display: flex;
+  padding-left: 2rem;
+  justify-content: flex-start; /* Align the items to the left */
+  align-items: center;
+  width: 100%;
+  overflow: hidden;
+}
+
+.task-content h3 {
+  margin-right: 15px; /* Space between title and buttons */
+  font-size: 1rem;
+  text-align: left;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.task-content button {
+  margin-left: 5px; /* Keep buttons close together */
+  cursor: pointer;
+}
+
+/* Dark mode title */
+.dark-title {
+  color: white;
+}
+
+.task-buttons {
+  justify-content: end;
+}
+
+.task-title {
+  flex: 1; /* Let the title take up remaining space */
+  overflow: hidden;
 }
